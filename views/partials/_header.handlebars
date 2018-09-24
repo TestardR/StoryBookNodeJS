@@ -1,0 +1,39 @@
+<nav class="grey darken-3">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">StoryBooks</a>
+            <a href="#" data-activates="main-menu" class="button-collapse show-on-large"><i class="fa fa-bars"></i></a>
+            {{!-- RIGHT NAV --}}
+            <ul class="right hide-on-small-only">
+                {{#if user}}
+                <li>
+                    <a href="/dashboard">Bienvenue {{user.firstName}}</a>
+                </li>
+                <li>
+                    <a href="/auth/logout">Déconnection</a>
+                </li>
+                {{else}}
+                <li><a href="/stories"><i class="fa fa-book"></i> Histoires publiques</a></li>
+                {{/if}}
+            </ul>
+            {{!-- SIDE MENU --}}
+            <ul id="main-menu" class="side-nav">
+                {{#if user}}
+
+                {{else}}
+                <li>
+                    <a href="/auth/google" class="btn red darken-1">
+                        Connection avec Google</a>
+                </li>
+                {{/if}}
+                <li><a href="/stories"><i class="fa fa-book"></i>Histoires Publiques</a></li>
+                {{#if user}}
+                <li class="divider"></li>
+                <li><a href="/dashboard"><i class="fa fa-cog"></i>Panneau de contrôle</a></li>
+                <li><a href="/stories/my"><i class="fa fa-user"></i>Mes Histoires</a></li>
+                <li><a href="/auth/logout"><i class="fa fa-sign-out-alt"></i>Déconnection</a></li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
